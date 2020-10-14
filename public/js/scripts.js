@@ -123,35 +123,4 @@ $(function() {
     });
 });
 
-//infinitescroll
-// $(function() {
-// var pageCount = {{ $timelines->lastPage() }};
-// var nowPage = 1;
-// $('.result_timelines').infinitescroll({
-//     navSelector  : ".more",
-//     nextSelector : ".more a",
-//     itemSelector : ".info",
-//     loading : {
-//         img : '',
-//         msgText : 'Now loading....',
-//         finishedMsg : '',
-//     },
-// },
-// function(newElements) {
-//     var $newElems = $(newElements);
-//     $("#infscr-loading").remove();
-//     if (nowPage < pageCount) {
-//         $(".more").appendTo(".result_timelines");  
-//         $(".more").css({display: 'block'});  
-//     }
-//     nowPage++;
-// });
 
-// // クリックでスクロールさせるためinfinitescrollをunbind
-// $('.result_timelines').infinitescroll('unbind');
-// // クリック時の動作
-// $('.more a').click(function(){
-//     $('.result_timelines').infinitescroll('retrieve');
-//     return false;
-// });
-// }
