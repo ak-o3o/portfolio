@@ -977,6 +977,9 @@ footer p {
   .home .post-create {
     margin: 10px;
   }
+  .no-post {
+    text-align: left;
+  }
 }
 
 @media screen and (max-width: 559px) {
