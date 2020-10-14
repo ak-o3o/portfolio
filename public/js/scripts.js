@@ -154,4 +154,4 @@ $(function() {
 //     $('.result_timelines').infinitescroll('retrieve');
 //     return false;
 // });
-}
+// }
