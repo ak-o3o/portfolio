@@ -65,6 +65,10 @@ class AuthController extends Controller
             'password' => 'required|min:4'
         ]);
 
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
+
         //認証
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             return redirect()->route('home');

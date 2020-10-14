@@ -6,29 +6,10 @@
     <meta charset="UTF-8" />
     <!-- view port -->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    
-    <!-- OGP -->
-    <head prefix="og: http://ogp.me/ns#">
-      <meta property="og:title" content="タイトル">
-      <meta property="og:type" content="website　または　article">
-      <meta property="og:url" content="表示したいページのURL（絶対パス）">
-      <meta property="og:image" content="表示したい画像のURL（絶対パス）">
-      <meta property="og:site_name" content="サイト名。">
-      <meta property="og:description" content="表示したいページの説明">
-      <meta property="og:locale" content="サイトがサポートしてる言語。日本であればja_JP">
-    
+        
     <title>EN DIARY</title>
     <style type="text/css">
     </style>
-
-    <!--google font opensans-->
-    <!-- <link
-      href="https://fonts.googleapis.com/css?family= Open+Sans"
-      rel="stylesheet"
-    /> -->
-
-    <!--ress.css-->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/ress@2.0.4/dist/ress.min.css" />  -->
     
     <!--style-->
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/style.css') }}" />

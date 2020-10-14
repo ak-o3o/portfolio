@@ -4,10 +4,6 @@
     
 
 <body>
-    @if(Auth::check())
-        {{ View('home.home') }}
-    @endif
-
 <div class="register">
     <h2>--- ログイン ---</h2>
 
