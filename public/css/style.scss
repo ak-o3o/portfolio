@@ -982,11 +982,23 @@ footer {
             margin: 10px;
         }
     }
+
+    .no-post {
+        text-align: left;
+    }
     ////homeページ------------------------------------
 
     //vocabulary
     .vocabulary {
-        width: 330px;
+        width: 100%;
+    }
+
+    //mypage
+    .profile{
+    text-align: left;
+        .mypage-txt{
+        font-size: 14px;
+        }
     }
 
     //edit

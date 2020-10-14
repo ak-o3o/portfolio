@@ -1055,8 +1055,17 @@ footer p {
   .home .post-create {
     margin: 10px;
   }
+  .no-post {
+    text-align: left;
+  }
   .vocabulary {
-    width: 330px;
+    width: 100%;
+  }
+  .profile {
+    text-align: left;
+  }
+  .profile .mypage-txt {
+    font-size: 14px;
   }
   .edit .post-create-contents {
     background: #fff;

@@ -51,17 +51,17 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-end">
+                                <div class="d-flex justify-content-end w-10">
                                     <div class="p-2 d-flex flex-column align-items-center">
-                                        <p class="font-weight-bold">Posts</p>
+                                        <p class="font-weight-bold mypage-txt">Posts</p>
                                         <span>{{ $post_count }}</span>
                                     </div>
                                     <div class="p-2 d-flex flex-column align-items-center">
-                                        <p class="font-weight-bold">Following</p>
+                                        <p class="font-weight-bold mypage-txt">Following</p>
                                         <span>{{ $follow_count }}</span>
                                     </div>
                                     <div class="p-2 d-flex flex-column align-items-center">
-                                        <p class="font-weight-bold">Follower</p>
+                                        <p class="font-weight-bold mypage-txt">Follower</p>
                                         <span>{{ $follower_count }}</span>
                                     </div>
                                 </div>

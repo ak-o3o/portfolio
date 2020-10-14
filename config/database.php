@@ -15,11 +15,7 @@ return [
     |
     */
 
-    //開発用
     'default' => env('DB_CONNECTION', 'mysql'),
-
-    //本番用
-    // 'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
