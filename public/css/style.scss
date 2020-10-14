@@ -839,6 +839,25 @@ footer {
 
 //960px未満(タブレット)------------------------------------------------------------------
 @media screen and (max-width: 959px) {
+    //top
+    .main {
+        width: 100%;
+        display: block;
+
+        .main-left {
+            width: 100%;
+            height: 270px;
+        }
+        .main-right {
+            width: 100%;
+            height: auto;
+            .main-right-txt{
+                width: 75%;
+            }
+        }
+    }
+    //topページ---------------------------------
+    
     //homeページ
     .home {
         margin: 0 20px;

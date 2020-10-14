@@ -12,7 +12,7 @@
     </style>
     
     <!--style-->
-    <link rel="stylesheet" type="text/css" href="{{ mix('/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}" />
 
     <!--fontawesome-->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">

@@ -921,6 +921,21 @@ footer p {
 }
 
 @media screen and (max-width: 959px) {
+  .main {
+    width: 100%;
+    display: block;
+  }
+  .main .main-left {
+    width: 100%;
+    height: 270px;
+  }
+  .main .main-right {
+    width: 100%;
+    height: auto;
+  }
+  .main .main-right .main-right-txt {
+    width: 75%;
+  }
   .home {
     margin: 0 20px;
   }
