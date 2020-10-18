@@ -94,7 +94,11 @@ class User extends Authenticatable
         //パラメーターに画像ファイルがあれば
         if (isset($params['profile_image'])) {
 
-            $file_name = $params['profile_image']->store('public/user_images');
+            // $file_name = $params['profile_image']->store('public/user_images');
+
+            //s3
+            $file = $params['profile_image'];
+            $file_name = Storage::disk('s3')->putFile('/user_images', $file, 'public');
 
             $this::where('id', $this->id)
                 ->update([
