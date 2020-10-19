@@ -99,6 +99,7 @@ class User extends Authenticatable
             //s3
             $file = $params['profile_image'];
             $file_name = Storage::disk('s3')->putFile('/user_images', $file, 'public');
+            dd($file_name);
 
             $this::where('id', $this->id)
                 ->update([
