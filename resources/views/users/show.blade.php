@@ -15,7 +15,9 @@
                             <div class="p-3 d-flex flex-column">
                                 
                                 @if ($user->image_file !== null)
-                                <img src="{{ asset('/storage/user_images/'. $user->image_file) }}" class="rounded-circle" width="100" height="100">
+                                {{-- <img src="{{ asset('/storage/user_images/'. $user->image_file) }}" class="rounded-circle" width="100" height="100"> --}}
+                                {{-- heroku用 --}}
+                                <img src="data:image/png;base64,{{ $user->image_file }}" class="rounded-circle" width="100" height="100">
                                 @else
                                 <img src="{{ asset('/storage/default_user_img/default_user.png') }}" class="rounded-circle" width="100" height="100">
                                 @endif
@@ -82,7 +84,13 @@
                 {{-- post --}}
                 <div class="post">
                     <div class="post-left">
-                        <img src="{{ asset('/storage/user_images/'. $user->image_file) }}">
+                        @if ($user->image_file !== null)
+                        {{-- <img src="{{ asset('/storage/user_images/'. $user->image_file) }}" class="rounded-circle" width="100" height="100"> --}}
+                        {{-- heroku用 --}}
+                        <img src="data:image/png;base64,{{ $user->image_file }}" class="rounded-circle" width="100" height="100">
+                        @else
+                        <img src="{{ asset('/storage/default_user_img/default_user.png') }}" class="rounded-circle" width="100" height="100">
+                        @endif
         
                     </div>
                   <div class="post-right">

@@ -22,10 +22,12 @@ class AuthController extends Controller
         //imgがあれば保存し、ファイルパスを取得
         if ($request->hasFile('image_file')) {
 
-            $ext = '.' . $request->file('image_file')->extension();
-            Storage::disk('public')->putFileAs('user_images', $request->file('image_file'), $request->input('name') . '_usrimg' . $ext);
-            $img_path = storage_path('user_images/' . $request->input('name') . '_usrimg' . $ext);
-            $file_name = basename($img_path);
+            // $ext = '.' . $request->file('image_file')->extension();
+            // Storage::disk('public')->putFileAs('user_images', $request->file('image_file'), $request->input('name') . '_usrimg' . $ext);
+            // $img_path = storage_path('user_images/' . $request->input('name') . '_usrimg' . $ext);
+            // $file_name = basename($img_path);
+            //heroku用(バイナリで保存)
+            $file_name = base64_encode(file_get_contents($request->file('image_file')));
 
             //DBインサート
             $member = new User([

@@ -12,7 +12,9 @@
             <div class="post-left">
                 
                 @if ($post->user->image_file !== null)
-                <img src="{{ asset('storage/user_images/' .$post->user->image_file) }}" class="rounded-circle" width="50" height="50">
+                {{-- <img src="{{ asset('storage/user_images/' .$post->user->image_file) }}" class="rounded-circle" width="50" height="50"> --}}
+                {{-- heroku用 --}}
+                <img src="data:image/png;base64,{{ $post->user->image_file }}" class="rounded-circle" width="50" height="50">
                 @else
                 <img src="{{ asset('/storage/default_user_img/default_user.png') }}">
                 @endif
@@ -66,30 +68,30 @@
                 <div class="action-btn">
                     <div class="action-btn-under">
                         <div class="action-btn-under-left">
-                            <a href="{{ url('posts/' .$timeline->id) }}"><i class="far fa-comment-dots fa-fw"></i>{{ count($timeline->comments) }}</a>
+                            <a href="{{ url('posts/' .$post->id) }}"><i class="far fa-comment-dots fa-fw"></i>{{ count($post->comments) }}</a>
                         </div>
 
                         <div class="action-btn-under-right">
-                            @if (!in_array(Auth::user()->id, array_column($timeline->favorites->toArray(), 'user_id'), TRUE))
+                            @if (!in_array(Auth::user()->id, array_column($post->favorites->toArray(), 'user_id'), TRUE))
                                 <form method="POST" action="{{ url('favorites/') }}" >
                                     @csrf
 
-                                    <input type="hidden" name="post_id" value="{{ $timeline->id }}">
-                                    <button type="submit" ><i class="far fa-star fa-fw"></i>{{ count($timeline->favorites) }}</button>
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                    <button type="submit" ><i class="far fa-star fa-fw"></i>{{ count($post->favorites) }}</button>
                                     
                                 </form>
                             @else
-                                <form method="POST"action="{{ url('favorites/' .array_column($timeline->favorites->toArray(), 'id', 'user_id')[Auth::user()->id]) }}">
+                                <form method="POST"action="{{ url('favorites/' .array_column($post->favorites->toArray(), 'id', 'user_id')[Auth::user()->id]) }}">
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="submit" class="text-danger"><i class="far fa-star fa-fw"></i>{{ count($timeline->favorites) }}</button>
+                                    <button type="submit" class="text-danger"><i class="far fa-star fa-fw"></i>{{ count($post->favorites) }}</button>
                                 </form>
                             @endif
                         </div>
                     </div>
-                        @if ($timeline->user_id === Auth::user()->id)
-                        <a href="{{ url('posts/' .$timeline->id .'/edit') }}"><i class="far fa-edit"></i></a>
+                        @if ($post->user_id === Auth::user()->id)
+                        <a href="{{ url('posts/' .$post->id .'/edit') }}"><i class="far fa-edit"></i></a>
                         @endif
 
                 </div>
@@ -111,7 +113,9 @@
             <div class="comment-content-container">
                 <div class="comment-contents-left">
                     @if ($comment->user->image_file !== null)
-                    <img src="{{ asset('storage/user_images/' .$comment->user->image_file) }}" class="rounded-circle" width="50" height="50">
+                    {{-- <img src="{{ asset('storage/user_images/' .$comment->user->image_file) }}" class="rounded-circle" width="50" height="50"> --}}
+                    {{-- heroku用 --}}
+                    <img src="data:image/png;base64,{{ $comment->user->image_file }}" class="rounded-circle" width="50" height="50">
                     @else
                     <img src="{{ asset('/storage/default_user_img/default_user.png') }}">
                     @endif
@@ -147,7 +151,14 @@
 {{-- コメント投稿 --}}
     <div class="comment-create-contents">
         <div class="col-md-12 p-3 w-100 d-flex">
-            <img src="{{ asset('storage/user_images/' .$user->image_file) }}" class="rounded-circle" width="50" height="50">
+            @if ($user->image_file !== null)
+            {{-- <img src="{{ asset('/storage/user_images/'. $user->image_file) }}" class="rounded-circle" width="100" height="100"> --}}
+            {{-- heroku用 --}}
+            <img src="data:image/png;base64,{{ $user->image_file }}" class="rounded-circle" width="50" height="50">
+            @else
+            <img src="{{ asset('/storage/default_user_img/default_user.png') }}" class="rounded-circle" width="50" height="50">
+            @endif
+
             <div class="ml-2 d-flex flex-column">
                 <a href="{{ url('users/' .$user->id) }}" class="text-secondary">{{ $user->name }}</a>
             </div>

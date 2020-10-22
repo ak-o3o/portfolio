@@ -14,7 +14,9 @@
                 <div class="post-left">
                     
                     @if ($timeline->user->image_file !== null)
-                    <img src="{{ asset('/storage/user_images/'. $timeline->user->image_file) }}">
+                    {{-- <img src="{{ asset('/storage/user_images/'. $timeline->user->image_file) }}"> --}}
+                    {{-- heroku用 --}}
+                    <img src="data:image/png;base64,{{ $timeline->user->image_file }}">
                     @else
                     <img src="{{ asset('/storage/default_user_img/default_user.png') }}">
                     @endif

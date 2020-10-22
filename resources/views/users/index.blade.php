@@ -10,7 +10,9 @@
                     <div class="card">
                         <div class="card-haeder p-3 w-100 d-flex">
                             @if ($user->image_file !== null)
-                                <img src="{{ asset('/storage/user_images/'. $user->image_file) }}" class="rounded-circle" width="50" height="50">
+                                {{-- <img src="{{ asset('/storage/user_images/'. $user->image_file) }}" class="rounded-circle" width="50" height="50"> --}}
+                                {{-- heroku用 --}}
+                                <img src="data:image/png;base64,{{ $user->image_file }}" class="rounded-circle" width="50" height="50">
                             @else
                                 <img src="{{ asset('/storage/default_user_img/default_user.png') }}" class="rounded-circle" width="50" height="50">
                             @endif

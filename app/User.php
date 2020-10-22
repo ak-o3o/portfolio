@@ -97,14 +97,18 @@ class User extends Authenticatable
             // $file_name = $params['profile_image']->store('public/user_images');
 
             //s3
-            $file = $params['profile_image'];
-            $file_name = Storage::disk('s3')->putFile('/user_images', $file, 'public');
-            dd($file_name);
+            // $file = $params['profile_image'];
+            // $file_name = Storage::disk('s3')->putFile('/user_images', $file, 'public');
+
+            //heroku用(バイナリで保存)
+            $file_name = base64_encode(file_get_contents($params['profile_image']));
 
             $this::where('id', $this->id)
                 ->update([
                     'name'          => $params['name'],
-                    'image_file'    => basename($file_name),
+                    // 'image_file'    => basename($file_name),
+                    //hroku用
+                    'image_file'    => ($file_name),
                     'email'         => $params['email'],
                 ]);
         } else {

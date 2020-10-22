@@ -5,7 +5,14 @@
 <body>
     <div class="edit">
         <div class="post-create-contents">
-            <img src="{{ asset('storage/user_images/' .$user->image_file) }}" class="rounded-circle" width="50" height="50">
+            @if ($user->image_file !== null)
+            {{-- <img src="{{ asset('storage/user_images/' .$user->image_file) }}" class="rounded-circle" width="50" height="50"> --}}
+            {{-- heroku用 --}}
+            <img src="data:image/png;base64,{{ $user->image_file }}" class="rounded-circle" width="50" height="50">
+            @else
+            <img src="{{ asset('/storage/default_user_img/default_user.png') }}" class="rounded-circle" width="50" height="50">
+            @endif
+
             <div class="ml-2 d-flex flex-column">
                 <a href="{{ url('users/' .$user->id) }}" class="text-secondary">{{ $user->name }}</a>
             </div>
