@@ -117,7 +117,7 @@
                     {{-- heroku用 --}}
                     <img src="data:image/png;base64,{{ $comment->user->image_file }}" class="rounded-circle" width="50" height="50">
                     @else
-                    <img src="{{ asset('/storage/default_user_img/default_user.png') }}">
+                    <img src="{{ asset('/storage/default_user_img/default_user.png') }}" class="rounded-circle" width="50" height="50">
                     @endif
                 </div>
 
